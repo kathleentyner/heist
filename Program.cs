@@ -40,7 +40,6 @@ static void AddHeistMember()
 
 
 {
-    HeistTeam heistTeam = new HeistTeam();
   
     Console.WriteLine("Add members to your heist team. Enter a the name of a criminal:");
         string? Name = Console.ReadLine();
@@ -49,6 +48,7 @@ static void AddHeistMember()
                 ChooseBank();
 
         }
+        else 
     Console.WriteLine();
 
     Console.WriteLine($"How skilled of a criminal is {Name}? Enter a number between 1 and 10 with 10 being the most skilled:");
@@ -59,16 +59,18 @@ static void AddHeistMember()
         int Courage = Convert.ToInt32(Console.ReadLine());
     Console.WriteLine();
     
-    
-    HeistMember singleHeistMember = new HeistMember(Name, Skill, Courage);
-        heistTeam.AddToTeam(singleHeistMember);
+        List<HeistMember>  = new List<HeistMember>(); //abilioty to add more team members to a list
+
+    HeistMember heistMember = new HeistMember(Name, Skill, Courage); //add each individual member
+        HeistMembers.Add(heistMember);
 
 
     Console.WriteLine($"Ok, {Name} is a member of your heist team. {Name} has a skill level of {Skill} and a courage factor of {Courage}.");
     Console.WriteLine();
-              //   Console.WriteLine($"Your team has {heistTeam.heistTeam.Count} members: {heistTeam} ");     
+                Console.WriteLine($"Your team has {HeistMembers.Count} members: {HeistMembers} ");     
   
  AddHeistMember();
+        
             
 }
 static void ChooseBank()
@@ -79,8 +81,21 @@ Console.WriteLine($"How hard should the robbery be? Select a difficulty level be
                 
                 bank.Difficulty = Difficulty;
 
+                int skillTotal = 0;
 
-}}}
+                foreach (var heistMember in HeistMembers )
+                {
+                    skillTotal += heistMember.Skill;
+                }
+                if (skillTotal >= Difficulty) 
+                {
+                    Console.WriteLine("you should have enoiught skillzzzz to rob this"); //If the team's skill level is greater than or equal to the bank's difficulty level, Display a success message,
+                }
+                else
+                {
+                    Console.WriteLine("Your team needs more skilllllzzzzzzzzzzzzz");
+
+}}}}
 
 
 
