@@ -21,21 +21,76 @@
 // Prompt the user to enter a team member's skill level and save that skill level with the name.
 // Prompt the user to enter a team member's courage factor and save that courage factor with the name.
 // Display the team member's information.
-// Phase Two
-// The program should be updated to...
+using System;
 
-// Create a way to store several team members.
-// Collect several team members' information.
-// Stop collecting team members when a blank name is entered.
-// Display a message containing the number of members of the team.
-// Display each team member's information.
-// Phase Three
-// The program should be updated to...
+    class Program
+{
 
-// Stop displaying each team member's information.
-// Store a value for the bank's difficulty level. Set this value to 100.
+ static void Main()
+{   AddHeistMember();
+   
+}
+
+static void AddHeistMember()
+{
+    Console.WriteLine("--------------------------------------------");
+    Console.WriteLine("Plan Your Heist!");
+    Console.WriteLine("--------------------------------------------");
+    Console.WriteLine();
+
+
+{
+    HeistTeam heistTeam = new HeistTeam();
+  
+    Console.WriteLine("Add members to your heist team. Enter a the name of a criminal:");
+        string? Name = Console.ReadLine();
+        if (Name == "")
+        {
+                ChooseBank();
+
+        }
+    Console.WriteLine();
+
+    Console.WriteLine($"How skilled of a criminal is {Name}? Enter a number between 1 and 10 with 10 being the most skilled:");
+        int Skill = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine();
+
+    Console.WriteLine($"Rate {Name}'s courage factor. Enter a number between 1 and 10 with 10 being the most couragous:");
+        int Courage = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine();
+    
+    
+    HeistMember singleHeistMember = new HeistMember(Name, Skill, Courage);
+        heistTeam.AddToTeam(singleHeistMember);
+
+
+    Console.WriteLine($"Ok, {Name} is a member of your heist team. {Name} has a skill level of {Skill} and a courage factor of {Courage}.");
+    Console.WriteLine();
+              //   Console.WriteLine($"Your team has {heistTeam.heistTeam.Count} members: {heistTeam} ");     
+  
+ AddHeistMember();
+            
+}
+static void ChooseBank()
+{
+Bank bank = new Bank();
+Console.WriteLine($"How hard should the robbery be? Select a difficulty level between 1 and 20:");
+    int Difficulty = Convert.ToInt32(Console.ReadLine());
+                
+                bank.Difficulty = Difficulty;
+
+
+}}}
+
+
+
+
 // Sum the skill levels of the team. Save that number.
 // Compare the number with the bank's difficulty level. If the team's skill level is greater than or equal to the bank's difficulty level, Display a success message, otherwise display a failure message.
+
+
+
+
 // Phase Four
 // The program should be updated to...
 
